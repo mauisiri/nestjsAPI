@@ -31,9 +31,9 @@ export class UsersService {
             userId: v4(),
             userName,
             languagePreference,
-            showLanguagesPreference: true,
-            showProfilePreference: true,
-            termsAccepted: true,
+            showLanguagesPreference,
+            showProfilePreference,
+            termsAccepted,
         };
         this.users.push(user);
 
