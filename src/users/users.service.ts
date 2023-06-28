@@ -40,7 +40,17 @@ export class UsersService {
         return user;
     }
 
-    updateUser() { }
-    deletaUser() { }
+    deleteUser(userId: string) { 
+        this.users = this.users.filter(user => user.userId !== userId)
+    }
 
+    getUserkById(userId: string): User {
+        return this.users.find(user => user.userId === userId)
+    }
+
+    /* updateUser(userId: string, updatedFields: any) { }
+        const user = this.getUserkById(userId);
+        const newUser = Object.assign(user, updatedFields);
+        this.users = this.users.map((user) => user.userId === userId ? newUser : user)
+        return newUser; */
 }
