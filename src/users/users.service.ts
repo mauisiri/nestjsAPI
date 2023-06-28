@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from './user.entity';
+import { v4 } from 'uuid';
 
 @Injectable()
 export class UsersService {
@@ -24,14 +25,21 @@ export class UsersService {
         languagePreference: string,
         showLanguagesPreference: boolean,
         showProfilePreference: boolean,
-        termsAccepted: boolean,
-        ) { 
-            const user = {
-                userName,
-                languagePreference
-            }
-            this.users.push()
-        }
+        termsAccepted: boolean,) {
+
+        const user = {
+            userId: v4(),
+            userName,
+            languagePreference,
+            showLanguagesPreference: true,
+            showProfilePreference: true,
+            termsAccepted: true,
+        };
+        this.users.push(user);
+
+        return user;
+    }
+
     updateUser() { }
     deletaUser() { }
 
